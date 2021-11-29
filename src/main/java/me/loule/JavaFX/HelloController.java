@@ -1,4 +1,4 @@
-package me.loule.javajavafx;
+package me.loule.JavaFX;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

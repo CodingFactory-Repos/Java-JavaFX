@@ -1,4 +1,4 @@
-package me.loule.javajavafx;
+package me.loule.JavaFX;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
