@@ -6,16 +6,19 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import me.loule.javafx.model.Fauteil;
+import me.loule.javafx.model.Commode;
+import me.loule.javafx.model.Fauteuil;
 import me.loule.javafx.model.Mobilier;
 
 public class MainController implements Initializable {
 
     @FXML
-    private Button btnValider;
+    private Button btnCommodeValider;
+
+    @FXML
+    private Button btnFauteuilValider;
 
     @FXML
     private TextField textFieldCouleur;
@@ -36,20 +39,26 @@ public class MainController implements Initializable {
     private TextField textFieldPieds;
 
     @FXML
-    private TextField textFieldPlaces;
-
-    @FXML
     private TextField textFieldPoids;
 
     @FXML
+    private TextField textFieldPoignes;
+
+    @FXML
     private TextField textFieldPrix;
+
+    @FXML
+    private TextField textFieldTiroir;
+
+    @FXML
+    private TextField textFieldPlaces;
 
     @FXML
     private Text textResult;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        btnValider.setOnMouseClicked(arg0 -> {
+        btnFauteuilValider.setOnMouseClicked(arg0 -> {
             String couleur = textFieldCouleur.getText();
             double largeur = Double.parseDouble(textFieldLargeur.getText());
             double longueur = Double.parseDouble(textFieldLongueur.getText());
@@ -60,8 +69,24 @@ public class MainController implements Initializable {
             double prix = Double.parseDouble(textFieldPrix.getText());
             int places = Integer.parseInt(textFieldPlaces.getText());
 
-            Mobilier fauteil = new Fauteil(matiere, largeur, longueur, hauteur, poids, pieds, couleur, prix, places);
-            textResult.setText(fauteil.toString());
+            Mobilier Fauteuil = new Fauteuil(matiere, largeur, longueur, hauteur, poids, pieds, couleur, prix, places);
+            textResult.setText(Fauteuil.toString());
+        });
+
+        btnCommodeValider.setOnMouseClicked(arg0 -> {
+            String couleur = textFieldCouleur.getText();
+            double largeur = Double.parseDouble(textFieldLargeur.getText());
+            double longueur = Double.parseDouble(textFieldLongueur.getText());
+            double hauteur = Double.parseDouble(textFieldHauteur.getText());
+            double poids = Double.parseDouble(textFieldPoids.getText());
+            double pieds = Double.parseDouble(textFieldPieds.getText());
+            String matiere = textFieldMatiere.getText();
+            double prix = Double.parseDouble(textFieldPrix.getText());
+            int tiroir = Integer.parseInt(textFieldTiroir.getText());
+            int poignes = Integer.parseInt(textFieldPoignes.getText());
+
+            Mobilier Commode = new Commode(matiere, largeur, longueur, hauteur, poids, pieds, couleur, prix, tiroir, poignes);
+            textResult.setText(Commode.toString());
         });
     }
 }
